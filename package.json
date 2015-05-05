@@ -1,7 +1,7 @@
 {
   "name": "Drawer",
   "version": "1.0.0",
-  "description": "**Provide point events for DOM elements**",
+  "description": "**Drawer widget for web page**",
   "main": "drawer.min.js",
   "repository": {
     "type": "git",

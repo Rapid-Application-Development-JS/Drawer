@@ -608,7 +608,9 @@
                 _action(close ? 'close' : 'open');
             }
         };
-
+        this.isClosed = function(){
+            return _isClosed;
+        };
         this.enable = function (flag) {
             _enabled = flag;
         };
