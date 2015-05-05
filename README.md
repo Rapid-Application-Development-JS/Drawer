@@ -2,6 +2,7 @@
 ###Options parameters
 |Parametr| Default value             |Description|
 |--------|:-------------------------:|-----------|
+|align|left| set align for drawer: left/right/top/bottom| 
 |overlay|true                      | Add overlay layer over content layout|
 |overlayOpacity| true|Makes overlay layer opaque if set as true or transparent if set false|
 |overlayBackground| rgba(0, 0, 0, 0.4)| Color which will be filled overlay layer|
