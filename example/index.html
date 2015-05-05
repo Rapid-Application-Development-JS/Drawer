@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>View Pager</title>
+    <script type="text/javascript" src="../drawer.js"></script>
+    <script type="text/javascript" src="pointer.min.js"></script>
+    <script type="text/javascript" src="gesture.min.js"></script>
+    <style type="text/css">
+        html, body, .wrapper {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            position: relative;
+        }
+
+        .navigation, .content {
+            background-color: #fff;
+        }
+
+        .content-wrapper, .navigation {
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .content-wrapper {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="navigation">
+        <ul>
+            <li> item 1 </li>
+            <li> item 2 </li>
+            <li> item 3 </li>
+            <li> item 4 </li>
+            <li> item 5 </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+            <li> item ... </li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="content-wrapper">
+            <button>Button</button>
+            <div>
+                Lorem ipsum dolor sit amet, consectroweretur adipiscing elit. Sed quis tellus nec sem faucibus euismod quis in diam. Aenean ornare id sapien eu pulvinar. Donec vulputate felis eget velit mollis, eu convallis nibh ultrices. Sed quis mollis felis, vel pulvinar urna. Suspendisse id porta tortor, at varius mauris. Nam euismod mollis faucibus. Duis luctus, nisi ac adipiscing lobortis, nibh turpis ultricies tortor, hendrerit sollicitudin odio enim vel justo. Curabitur fermentum euismod libero in vehicula. Nullam ullamcorper ultricies quam et molestie. Fusce dui felis, interdum vitae euismod ac, condimentum ultrices magna. Donec a venenatis urna. Etiam eget lobortis augue. Aenean pulvinar neque vel diam faucibus aliquet. Nulla dui enim, rutrum vel cursus at, faucibus in urna. Mauris venenatis ante ut erat dictum, id eleifend tellus commodo.
+
+                Nullam quis tincidunt odio. Sed porttitor nibh vel justo varius, non facilisis tortor sollicitudin. Quisque sit amet nibh augue. Proin hendrerit rhoncus purus. In sagittis eros at tortor mattis pulvinar. Cras leo tellus, pulvinar vitae dictum a, accumsan eget risus. Nulla a tempus tortor. Aliquam condimentum mollis augue sit amet auctor. Praesent quam dui, tempor sed lorem ac, elementum hendrerit dui. Phasellus et semper nunc. Cras ligula est, commodo eget tellus sed, mattis consectetur orci. Quisque tincidunt est in massa dapibus, a viverra arcu vestibulum. Phasellus fringilla mauris libero, vel sodales nisi ornare ac.
+
+                Nulla gravida tristique turpis, in rhoncus diam eleifend id. Morbi nec leo enim. Sed posuere lorem vitae suscipit vestibulum. Suspendisse eu pellentesque augue, eu mollis felis. Praesent nec ante orci. Integer fringilla auctor ante, eu pharetra massa dignissim vel. Aliquam tempor convallis enim. Etiam eget mi tellus. Curabitur non tristique velit. Vestibulum ullamcorper eros eu nulla venenatis, id volutpat velit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam leo nisl, dapibus eget lacus eget, lobortis aliquet nisi.
+
+                Ut ornare consectetur mattis. Pellentesque lobortis est sit amet luctus suscipit. Etiam pulvinar sit amet nulla non posuere. Sed euismod aliquet faucibus. Ut aliquet risus eu faucibus condimentum. Curabitur in purus sit amet eros molestie molestie. Sed purus ante, lobortis vitae ullamcorper ac, faucibus vitae diam. Suspendisse potenti. Sed faucibus euismod pharetra. Maecenas placerat elit sagittis sollicitudin condimentum. Pellentesque egestas lorem turpis, at condimentum eros facilisis commodo.
+
+                Curabitur blandit auctor magna, vitae ornare ligula aliquet tristique. Etiam et nunc aliquet, volutpat arcu sed, viverra ipsum. Donec quam est, mattis vitae est quis, consectetur varius ante. Praesent sit amet justo luctus, venenatis sem a, ultricies neque. Etiam tempus magna a purus faucibus ornare. Fusce fringilla nibh luctus ligula mollis aliquet. Sed non lacus facilisis, eleifend metus commodo, luctus lectus. Donec interdum urna in mollis aliquam. Phasellus dui massa, vestibulum non leo ut, pretium pellentesque est. Integer vitae bibendum ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam luctus nisl urna, nec ultricies erat consequat sed.
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    var tracker = new PointerTracker(document.body),
+            gesture = new GestureTracker(document.body),
+            wrapper = document.querySelector('.wrapper'),
+            drawerState = false,
+            index =0;
+            drawer = new Drawer(wrapper, { startTrackingZone:'20%', overlay:true, align: 'bottom', onActionEnd: function(){
+                console.log("onActionEnd: "+ index);
+                index++;
+            }});
+    console.log(drawer.getOptions());
+    document.querySelector('button').addEventListener('click', function (event) {
+
+                drawer.setState(false);
+               // drawer.setState(false);
+                drawerState=!drawerState
+               },
+            false);
+</script>
+</body>
+</html>
