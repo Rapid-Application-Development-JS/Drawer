@@ -63,8 +63,15 @@
     var tracker = new PointerTracker(document.body),
             gesture = new GestureTracker(document.body),
             wrapper = document.querySelector('.main');
-    drawer = new Drawer(wrapper, {align: 'left'});
-    console.log(drawer.getOptions());
+    drawer = new Drawer(wrapper, {
+        align: 'left',
+        maxWidth: '30%',
+        startTrackingZone: '50',
+        animationTime: 1000,
+        onActionEnd: function (drawerState) {
+            console.log(drawerState ? 'close' : 'open');
+        }
+    });
     document.querySelector('button').addEventListener('click', function (event) {
                 drawer.setState(!drawer.isClosed());
             },

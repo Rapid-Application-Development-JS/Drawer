@@ -144,11 +144,6 @@
                 }
             }, options),
             _behavior = createBehavior();
-
-        this.getOptions = function () {
-            return _options;
-        }
-
         initialize();
         function initialize() {
             _enabled = _options.swipe;
@@ -611,10 +606,12 @@
         this.isClosed = function(){
             return _isClosed;
         };
-        this.enable = function (flag) {
+        this.setEnableSwipe = function (flag) {
             _enabled = flag;
         };
-
+        this.isEnableSwipe = function () {
+            return _enabled;
+        };
     }
 
     return Drawer;
