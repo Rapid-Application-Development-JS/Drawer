@@ -241,7 +241,7 @@
                 },
                 changeContentPositionRightBottom = function (shift) {
                     if ((_contentPosition + shift >= -behavior.wrapperOffset) && (_contentPosition + shift <= 0)) {
-                        var position = _contentPosition + shift;
+                        var position = (_contentPosition + shift);
                         _content.style[scope._transformName] = _behavior.getTranslate3dString(position);
                         _contentPosition = position;
                         if (_options.overlay && _options.overlayOpacity) {
@@ -467,6 +467,11 @@
                 _currentShiftForRaf += (Y - _lastPoint.y)// this._lastY);
                 shift = X - _startPoint.x;
             }
+            var inhibition = Math.abs(_behavior.navigationOffset/_contentPosition);
+            console.log("inhibition: "+inhibition);
+            inhibition = (inhibition>1)?1 : inhibition;
+            _currentShiftForRaf = _currentShiftForRaf *inhibition;
+
             _lastPoint.setNewCoords(X, Y);
             if (_gestureKind === null) {
                 if (Math.abs(_currentShiftForRaf) > Math.abs(shift) / 2) {
