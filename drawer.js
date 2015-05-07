@@ -144,6 +144,7 @@
                 }
             }, options),
             _behavior = createBehavior();
+
         initialize();
         function initialize() {
             _enabled = _options.swipe;
@@ -241,7 +242,7 @@
                 },
                 changeContentPositionRightBottom = function (shift) {
                     if ((_contentPosition + shift >= -behavior.wrapperOffset) && (_contentPosition + shift <= 0)) {
-                        var position = (_contentPosition + shift);
+                        var position = _contentPosition + shift;
                         _content.style[scope._transformName] = _behavior.getTranslate3dString(position);
                         _contentPosition = position;
                         if (_options.overlay && _options.overlayOpacity) {
