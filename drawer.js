@@ -545,8 +545,8 @@
                 verticalFling = Math.abs(event.speedY) > Math.abs(event.speedX),
                 direction = _behavior.getDirection(event);
 
-            if (((horizontalFling && Math.abs(event.speedX) > 0.2 && _enabled) && (_gestureKind === orientationType.horizontal)) ||
-                ((verticalFling && Math.abs(event.speedY) > 0.2 && _enabled) && (_gestureKind === orientationType.vertical))) {
+            if (((horizontalFling && Math.abs(event.speedX) > 0.2 && _enabled) && (_gestureKind === orientationType.horizontal)&&_behavior.isHorizontalOrientation) ||
+                ((verticalFling && Math.abs(event.speedY) > 0.2 && _enabled) && (_gestureKind === orientationType.vertical)&&!_behavior.isHorizontalOrientation)) {
                 clearTimeout(_tweatID);
                 console.log("_pointerFling _gestureKind:"+_gestureKind);
                 _action(direction);
