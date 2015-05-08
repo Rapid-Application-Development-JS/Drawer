@@ -108,6 +108,8 @@
             horizontal: 'horizontal'
         };
 
+
+
         var _wrapper = wrapper,
             _navigation = _wrapper.firstElementChild,
             _content = _navigation.nextElementSibling,
@@ -144,6 +146,12 @@
                 }
             }, options),
             _behavior = createBehavior();
+
+        console.info(_wrapper);
+        console.info(_navigation);
+        console.info(_content);
+
+        //console.dir(_content);
 
         initialize();
         function initialize() {
@@ -184,7 +192,22 @@
                 }
             }
             window.removeEventListener('resize', handleEvent.bind(this));
+            if (_onTheCSSEnd) {
+                _onTheCSSEnd = null;
+                //   this._onTheCSSEnd();
+                console.log("DESTROY");
+            }
+            clearTimeout(_tweatID);
+            window.cancelAnimationFrame(_RafID);
+            _content.removeEventListener(scope._transitionEndName, _onTheCSSEnd);
+            _onTheCSSEnd = null;
+            _content.style[scope._transitionName] = 'none';
 
+            if (_options.overlay) {
+                _overlay.style[scope._transitionName] = 'none';
+                _overlay.style.display = 'none';
+                _content.removeChild(_overlay);
+            }
             _navigation = null;
             _content = null;
             _overlay = null;
@@ -253,6 +276,7 @@
                         console.log(_contentPosition);
                     }
                 };
+
             behavior.isHorizontalOrientation = (_options.align === 'left' || _options.align === 'right') ? true : false
 
             behavior.getTranslate3dString = function (position) {
@@ -278,6 +302,12 @@
                     behavior.applyStyles = _applyStylesHorizontal;
                     behavior.getGestureKind = getGestureKindLeft;
                     behavior.changeContentPosition = changeContentPositionLeftTop;
+                    behavior.clearElement = function(element) {
+                        element.style.left = 0;
+                        element.style.top = 0;
+                        element.style.bottom = 'auto';
+                        element.style.right = 'auto';
+                    };
                     break;
                 case 'right':
                     behavior.getOpenSpin = function () {
@@ -292,6 +322,12 @@
                     behavior.applyStyles = _applyStylesHorizontal;
                     behavior.getGestureKind = getGestureKindRight;
                     behavior.changeContentPosition = changeContentPositionRightBottom;
+                    behavior.clearElement = function(element) {
+                        element.style.right = 0;
+                        element.style.top = 0;
+                        element.style.left = 'auto';
+                        element.style.bottom = 'auto';
+                    };
                     break;
                 case 'top':
                     behavior.getOpenSpin = function () {
@@ -306,6 +342,12 @@
                     behavior.applyStyles = _applyStylesVertical;
                     behavior.getGestureKind = getGestureKindTop;
                     behavior.changeContentPosition = changeContentPositionLeftTop;
+                    behavior.clearElement = function(element) {
+                        element.style.top = 0;
+                        element.style.left = 0;
+                        element.style.bottom = 'auto';
+                        element.style.right = 'auto';
+                    };
                     break;
                 case 'bottom':
                     behavior.getOpenSpin = function () {
@@ -320,6 +362,12 @@
                     behavior.applyStyles = _applyStylesVertical;
                     behavior.getGestureKind = getGestureKindBottom;
                     behavior.changeContentPosition = changeContentPositionRightBottom;
+                    behavior.clearElement = function(element) {
+                        element.style.bottom = 0;
+                        element.style.left = 0;
+                        element.style.top = 'auto';
+                        element.style.right = 'auto';
+                    };
                     break;
             }
             return behavior;
@@ -345,8 +393,7 @@
                 element.style.padding = 0;
                 element.style.width = '100%';
                 element.style.height = '100%';
-                element.style.top = 0;
-                element.style.left = 0;
+                _behavior.clearElement(element);
             }
 
             _wrapper.style.position = (tmpVar === -1) ? 'relative' : validPosition[tmpVar];
@@ -554,7 +601,7 @@
             }
 
             _onTheCSSEnd = function () {
-                // self._onTheCSSEnd = null;
+                console.info("_onTheCSSEnd");
                 _content.removeEventListener(scope._transitionEndName, _onTheCSSEnd);
                 _onTheCSSEnd = null;
                 _content.style[scope._transitionName] = 'none';
@@ -600,15 +647,17 @@
 
         };
 
-        this.setState = function (close) {
+        this.setState = function (close, onActionEnd) {
 
             if (_isClosed !== close) {
                 if (_options.overlay) {
                     _overlay.style.display = 'block';
                 }
+                _options.onActionEnd = onActionEnd? onActionEnd: _options.onActionEnd;
                 _action(close ? 'close' : 'open');
             }
         };
+
         this.isClosed = function(){
             return _isClosed;
         };
@@ -618,6 +667,7 @@
         this.isEnableSwipe = function () {
             return _enabled;
         };
+
     }
 
     return Drawer;

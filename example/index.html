@@ -12,11 +12,11 @@
     <script type="text/javascript" src="src/gesture.min.js"></script>
     <link rel="stylesheet" href="./theme/css/main.css" type="text/css"/>
     <link rel="stylesheet" href="./assets/layout.css" type="text/css"/>
-
+    <link rel="stylesheet" href="index.css" type="text/css"/>
 </head>
 <body>
 <div class="content-container">
-    <div class="top-bar topcoat-navigation-bar">
+    <div class="top-bar topcoat-navigation-bar no-top-shadow">
         <div class="topcoat-navigation-bar__item quarter">
             <button class="topcoat-icon-button toggle-menu">
                 <i class="fa fa-bars"></i>
@@ -25,6 +25,58 @@
         <div class="topcoat-navigation-bar__item center half">
             <h1 class="topcoat-navigation-bar__title">Drawer Example</h1>
         </div>
+    </div>
+
+    <div class="bottom-bar blocks-bottom blocks-holder">
+        <form class="form-options">
+            <ul class="topcoat-list__container block-container animation-list" id="animation-list">
+                <li class="topcoat-list__item block-container__item" onclick="onLeftItemClick()">
+                    <label class="topcoat-radio-button" for="slide-in">
+                        <input type="radio" name="animation" id="slide-in" checked>
+                        <div class="topcoat-radio-button__checkmark"></div>
+                        <span class="radio-label">Left</span>
+                    </label>
+                </li>
+
+                <li class="topcoat-list__item block-container__item" onclick="onRightItemClick()">
+                    <label class="topcoat-radio-button" for="slide-out">
+                        <input type="radio" name="animation" id="slide-out">
+                        <div class="topcoat-radio-button__checkmark"></div>
+                        <span class="radio-label">Right</span>
+                    </label>
+                </li>
+
+                <li class="topcoat-list__item block-container__item" onclick="onTopItemClick()">
+                    <label class="topcoat-radio-button" for="fade-in">
+                        <input type="radio" name="animation" id="fade-in">
+                        <div class="topcoat-radio-button__checkmark"></div>
+                        <span class="radio-label">Top</span>
+                    </label>
+                </li>
+
+                <li class="topcoat-list__item block-container__item" onclick="onBottomItemClick()">
+                    <label class="topcoat-radio-button" for="fade-out">
+                        <input type="radio" name="animation" id="fade-out">
+                        <div class="topcoat-radio-button__checkmark"></div>
+                        <span class="radio-label">Bottom</span>
+                    </label>
+                </li>
+            </ul>
+            <!--<select class="topcoat-select animation-select" id="animation-select">-->
+            <!--<option value="slide-in">Slide-in</option>-->
+            <!--<option value="slide-out">Slide-out</option>-->
+            <!--<option value="fade-in">Fade-in</option>-->
+            <!--<option value="fade-out">Fade-out</option>-->
+            <!--<option value="cover-in">Cover-in</option>-->
+            <!--<option value="cover-out">Cover-out</option>-->
+            <!--<option value="cover-double-in">Cover-double-in</option>-->
+            <!--<option value="cover-double-out">Cover-double-out</option>-->
+            <!--<option value="revolution-in">Revolution-in</option>-->
+            <!--<option value="revolution-out">Revolution-out</option>-->
+            <!--<option value="bounce-in">Bounce-in</option>-->
+            <!--<option value="bounce-out">Bounce-out</option>-->
+            <!--</select>-->
+        </form>
     </div>
     <div class="main">
         <div>
@@ -35,7 +87,7 @@
             </ul>
         </div>
         <div class="scroll-view-body">
-            <div class="section">
+            <div class="section native-scroll">
                 <h2 class="section__header">Move content to right or press button for open drawer</h2>
                 <div class="section__content">
                     <img src="./assets/download.jpg" class="article__img"/>
@@ -58,27 +110,6 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-
-    var tracker = new PointerTracker(document.body),
-            gesture = new GestureTracker(document.body),
-            wrapper = document.querySelector('.main');
-    drawer = new Drawer(wrapper, {
-        align: 'left',
-        maxWidth: '30%',
-        startTrackingZone: '50',
-        animationTime: 1000,
-        onActionEnd: function (drawerState) {
-            console.log(drawerState ? 'close' : 'open');
-        }
-    });
-    document.querySelector('button').addEventListener('click', function (event) {
-                drawer.setState(!drawer.isClosed());
-            },
-            false);
-    function closeDrawer(){
-        drawer.setState(true);
-    }
-</script>
+<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
