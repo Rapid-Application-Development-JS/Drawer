@@ -1,6 +1,6 @@
 var wrapper = document.querySelector('.main'),
     bottomBar =document.querySelector('.bottom-bar blocks-bottom blocks-holder'),
-tracker = new PointerTracker(wrapper),
+    tracker = new PointerTracker(wrapper),
     gesture = new GestureTracker(wrapper),
     allowClick = true,
     color = 'rgba(0, 250, 0, 0.6)',
@@ -33,7 +33,7 @@ tracker = new PointerTracker(wrapper),
         onActionEnd: onActionEnd
     },
     drawer = new Drawer(wrapper, rightOptions);
-    drawer.setState(false);
+drawer.setState(false);
 function onActionEnd(drawerState) {
     console.log(drawerState ? 'close' : 'open');
 }

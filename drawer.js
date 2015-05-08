@@ -108,8 +108,6 @@
             horizontal: 'horizontal'
         };
 
-
-
         var _wrapper = wrapper,
             _navigation = _wrapper.firstElementChild,
             _content = _navigation.nextElementSibling,
@@ -148,13 +146,7 @@
             }, options),
             _behavior = createBehavior();
 
-        console.info(_wrapper);
-        console.info(_navigation);
-        console.info(_content);
-
-        //console.dir(_content);
         handleEvent = function(event) {
-            console.log(event.type);
             switch (event.type) {
                 case TRACKING_EVENTS.down:
                     _pointerDown(event);
@@ -228,8 +220,6 @@
             window.removeEventListener('resize', handleEvent);
             if (_onTheCSSEnd) {
                 _onTheCSSEnd = null;
-                //   this._onTheCSSEnd();
-                console.log("DESTROY");
             }
             clearTimeout(_tweatID);
             window.cancelAnimationFrame(_RafID);
@@ -307,7 +297,7 @@
                         }
                     }
                     else {
-                        console.log(_contentPosition);
+
                     }
                 };
 
@@ -487,7 +477,6 @@
                     _RafID = window.requestAnimationFrame(_animationStep);
                 }
                 if (_enabled) {
-                    //  console.log("_animationStep: "+_currentShiftForRaf);
                     _behavior.changeContentPosition(_currentShiftForRaf);
                 }
                 _currentShiftForRaf = 0;
@@ -495,21 +484,13 @@
 
             _gestureKind = _behavior.getGestureKind(touchPoint);
             _currentShiftForRaf = 0;
-
-
-            //if (touchPoint.x > _trackingWidth && _isClosed === true) {
-            //    _gestureKind =  orientationType.vertical;//'vertical'; // don't track it
-            //}
         };
 
         function _pointerMove(event) {
-            //      this.log();
             var X = (event.originalEvent) ? event.originalEvent.clientX : event.clientX,
                 Y = (event.originalEvent) ? event.originalEvent.clientY : event.clientY,
                 shift,
                 gestureKind;
-            //    shiftX =(X - this._lastX);
-
             if (_behavior.isHorizontalOrientation) {
                 _currentShiftForRaf += (X - _lastPoint.x)// this._lastX);
                 shift = Y - _startPoint.y;
@@ -518,7 +499,6 @@
                 shift = X - _startPoint.x;
             }
             var inhibition = Math.abs(_behavior.navigationOffset/_contentPosition);
-            console.log("inhibition: "+inhibition);
             inhibition = (inhibition>1)?1 : inhibition;
             _currentShiftForRaf = _currentShiftForRaf *inhibition;
 
@@ -588,12 +568,11 @@
             // stop all
             if (_onTheCSSEnd) {
                 _onTheCSSEnd = null;
-                //   this._onTheCSSEnd();
             }
             clearTimeout(_tweatID);
             window.cancelAnimationFrame(_RafID);
-            //prepare css animation
 
+            //prepare css animation
             _content.style[scope._transitionName] = 'all ' + (animTime * Math.abs(shift) / _wrapperWidth) + 'ms ease-in-out';
             if (_options.overlay) {
                 _overlay.style.opacity = Math.abs(_contentPosition / _wrapperWidth);
@@ -603,7 +582,6 @@
             }
 
             _onTheCSSEnd = function () {
-                console.info("_onTheCSSEnd");
                 _content.removeEventListener(scope._transitionEndName, _onTheCSSEnd);
                 _onTheCSSEnd = null;
                 _content.style[scope._transitionName] = 'none';
