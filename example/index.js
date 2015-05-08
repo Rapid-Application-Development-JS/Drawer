@@ -32,7 +32,7 @@ var wrapper = document.querySelector('.main'),
         overlayBackground: color,
         onActionEnd: onActionEnd
     },
-    drawer = new Drawer(wrapper, rightOptions);
+    drawer = new Drawer(wrapper, leftOptions);
 drawer.setState(false);
 function onActionEnd(drawerState) {
     console.log(drawerState ? 'close' : 'open');

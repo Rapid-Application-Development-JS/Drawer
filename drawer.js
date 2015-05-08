@@ -494,10 +494,19 @@
             if (_behavior.isHorizontalOrientation) {
                 _currentShiftForRaf += (X - _lastPoint.x)// this._lastX);
                 shift = Y - _startPoint.y;
+                if(Math.abs(X - _lastPoint.x)<Math.abs(Y - _startPoint.y)){
+                    _lastPoint.setNewCoords(X, Y);
+                    return;
+                }
             } else {
                 _currentShiftForRaf += (Y - _lastPoint.y)// this._lastY);
                 shift = X - _startPoint.x;
+                if(Math.abs(X - _lastPoint.x)>Math.abs(Y - _startPoint.y)){
+                    _lastPoint.setNewCoords(X, Y);
+                    return;
+                }
             }
+
             var inhibition = Math.abs(_behavior.navigationOffset/_contentPosition);
             inhibition = (inhibition>1)?1 : inhibition;
             _currentShiftForRaf = _currentShiftForRaf *inhibition;
@@ -539,6 +548,7 @@
             if (((horizontalFling && Math.abs(event.speedX) > 0.2 && _enabled) && (_gestureKind === orientationType.horizontal)) ||
                 ((verticalFling && Math.abs(event.speedY) > 0.2 && _enabled) && (_gestureKind === orientationType.vertical))) {
                 clearTimeout(_tweatID);
+                console.log("_pointerFling _gestureKind:"+_gestureKind);
                 _action(direction);
             }
         };
