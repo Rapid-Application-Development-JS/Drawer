@@ -131,6 +131,7 @@
             _RafID,
             _tweatID,
             _onTheCSSEnd,
+            handleEvent,
             _options = mix({
                 align: 'left',
                 overlay: true,
@@ -152,6 +153,39 @@
         console.info(_content);
 
         //console.dir(_content);
+        handleEvent = function(event) {
+            console.log(event.type);
+            switch (event.type) {
+                case TRACKING_EVENTS.down:
+                    _pointerDown(event);
+                    break;
+                case TRACKING_EVENTS.move:
+                    _pointerMove(event);
+                    //if (this._gestureKind === 'horizontal' && this._options.preventMove && !this.preventDefaultTags.test(event.target)) {
+                    //    event.preventDefault();
+                    //}
+                    break;
+                case TRACKING_EVENTS.chancel:
+                case TRACKING_EVENTS.up:
+                    _pointerUp(event);
+                    break;
+                case TRACKING_EVENTS.fling:
+                    _pointerFling(event);
+                    break;
+                case 'resize':
+                    clearTimeout(_resizeID);
+                    _resizeID = setTimeout(function () {
+                        this.refresh();
+                    }.bind(scope), 150);
+                    break;
+                case TRACKING_EVENTS.tap:
+                    var nodeName = event.target.nodeName.toUpperCase();
+                    if (!scope.preventDefaultTags.test(nodeName)) {
+                        _pointerTap();
+                    }
+                    break;
+            }
+        }.bind(scope);
 
         initialize();
         function initialize() {
@@ -166,12 +200,12 @@
 
             for (event in TRACKING_EVENTS) {
                 if (TRACKING_EVENTS.hasOwnProperty(event)) {
-                    _content.addEventListener(TRACKING_EVENTS[event], handleEvent.bind(scope), false);
+                    _content.addEventListener(TRACKING_EVENTS[event], handleEvent, false);
                 }
             }
 
             if (_options.resizeEvent) {
-                window.addEventListener('resize', handleEvent.bind(scope), false);
+                window.addEventListener('resize', handleEvent, false);
             }
 
             scope.preventDefaultTags = /^(INPUT|TEXTAREA|BUTTON|SELECT)$/;
@@ -188,10 +222,10 @@
             var event;
             for (event in TRACKING_EVENTS) {
                 if (TRACKING_EVENTS.hasOwnProperty(event)) {
-                    _content.removeEventListener(TRACKING_EVENTS[event], handleEvent.bind(this));
+                    _content.removeEventListener(TRACKING_EVENTS[event], handleEvent);
                 }
             }
-            window.removeEventListener('resize', handleEvent.bind(this));
+            window.removeEventListener('resize', handleEvent);
             if (_onTheCSSEnd) {
                 _onTheCSSEnd = null;
                 //   this._onTheCSSEnd();
@@ -419,39 +453,7 @@
             _isClosed = true;
         };
 
-        function handleEvent(event) {
-            console.log(event.type);
-            switch (event.type) {
-                case TRACKING_EVENTS.down:
-                    _pointerDown(event);
-                    break;
-                case TRACKING_EVENTS.move:
-                    _pointerMove(event);
-                    //if (this._gestureKind === 'horizontal' && this._options.preventMove && !this.preventDefaultTags.test(event.target)) {
-                    //    event.preventDefault();
-                    //}
-                    break;
-                case TRACKING_EVENTS.chancel:
-                case TRACKING_EVENTS.up:
-                    _pointerUp(event);
-                    break;
-                case TRACKING_EVENTS.fling:
-                    _pointerFling(event);
-                    break;
-                case 'resize':
-                    clearTimeout(_resizeID);
-                    _resizeID = setTimeout(function () {
-                        this.refresh();
-                    }.bind(scope), 150);
-                    break;
-                case TRACKING_EVENTS.tap:
-                    var nodeName = event.target.nodeName.toUpperCase();
-                    if (!scope.preventDefaultTags.test(nodeName)) {
-                        _pointerTap();
-                    }
-                    break;
-            }
-        }
+
 
 
         function _getCoordsInElement(event, element) {

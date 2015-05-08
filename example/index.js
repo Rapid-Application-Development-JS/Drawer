@@ -76,15 +76,9 @@ function changeState(options) {
             drawer.destroy();
             drawer = null;
             drawer = new Drawer(wrapper, options);
-            //drawer.setState(false, function () {
-            //    allowClick = true;
-            //});
-            setTimeout( function() {
-                    drawer.setState(false, function () {
-                        allowClick = true;
-                    })
-                }, 1
-            )
+            drawer.setState(false, function () {
+                allowClick = true;
+            });
         });
     } else {
         drawer.destroy();
@@ -95,10 +89,3 @@ function changeState(options) {
         });
     }
 };
-
-//function initAndOpen(options){
-//    drawer = new Drawer(wrapper, options);
-//    drawer.setState(false, function (){
-//        allowClick = true;
-//    });
-//}
