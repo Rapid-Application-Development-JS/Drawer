@@ -30,33 +30,33 @@
     <div class="bottom-bar blocks-bottom blocks-holder">
         <form class="form-options">
             <ul class="topcoat-list__container block-container animation-list" id="animation-list">
-                <li class="topcoat-list__item block-container__item" onclick="onLeftItemClick()">
-                    <label class="topcoat-radio-button" for="slide-in">
-                        <input type="radio" name="animation" id="slide-in" checked>
+                <li class="topcoat-list__item block-container__item" >
+                    <label class="topcoat-radio-button" for="align-left">
+                        <input type="radio" name="animation" id="align-left" checked onchange="onLeftItemClick()">
                         <div class="topcoat-radio-button__checkmark"></div>
                         <span class="radio-label">Left</span>
                     </label>
                 </li>
 
-                <li class="topcoat-list__item block-container__item" onclick="onRightItemClick()">
-                    <label class="topcoat-radio-button" for="slide-out">
-                        <input type="radio" name="animation" id="slide-out">
+                <li class="topcoat-list__item block-container__item">
+                    <label class="topcoat-radio-button" for="align-right">
+                        <input type="radio" name="animation" id="align-right" onchange="onRightItemClick()">
                         <div class="topcoat-radio-button__checkmark"></div>
                         <span class="radio-label">Right</span>
                     </label>
                 </li>
 
-                <li class="topcoat-list__item block-container__item" onclick="onTopItemClick()">
-                    <label class="topcoat-radio-button" for="fade-in">
-                        <input type="radio" name="animation" id="fade-in">
+                <li class="topcoat-list__item block-container__item" >
+                    <label class="topcoat-radio-button" for="align-top" >
+                        <input type="radio" name="animation" id="align-top" onchange="onTopItemClick()">
                         <div class="topcoat-radio-button__checkmark"></div>
                         <span class="radio-label">Top</span>
                     </label>
                 </li>
 
-                <li class="topcoat-list__item block-container__item" onclick="onBottomItemClick()">
-                    <label class="topcoat-radio-button" for="fade-out">
-                        <input type="radio" name="animation" id="fade-out">
+                <li class="topcoat-list__item block-container__item" >
+                    <label class="topcoat-radio-button" for="align-bottom" >
+                        <input type="radio" name="animation" id="align-bottom" onchange="onBottomItemClick()">
                         <div class="topcoat-radio-button__checkmark"></div>
                         <span class="radio-label">Bottom</span>
                     </label>

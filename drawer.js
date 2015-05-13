@@ -138,10 +138,12 @@
                 swipe: true,
                 preventMove: true,
                 resizeEvent: true,
-                maxWidth: '70%',
+                maxSize: '70%',
                 startTrackingZone: '20%',
                 animationTime: 350,
                 onActionEnd: function () {
+                },
+                onActionStart: function () {
                 }
             }, options),
             _behavior = createBehavior();
@@ -240,14 +242,14 @@
         function createBehavior() {
             var behavior = {},
                 _applyStylesHorizontal = function () {
-                    _navigation.style.width = _options.maxWidth;
+                    _navigation.style.width = _options.maxSize;
                     behavior.contentOffset = _content.offsetWidth;
                     behavior.wrapperOffset = _wrapper.offsetWidth;
                     behavior.navigationOffset = _navigation.offsetWidth;
                     behavior.trackingSize = parseInt(_options.startTrackingZone, 10) * _behavior.contentOffset / 100;
                 },
                 _applyStylesVertical = function () {
-                    _navigation.style.height = _options.maxWidth;
+                    _navigation.style.height = _options.maxSize;
                     behavior.navigationOffset = _navigation.offsetHeight;
                     behavior.contentOffset = _content.offsetHeight;
                     behavior.wrapperOffset = _wrapper.offsetHeight;
@@ -609,7 +611,7 @@
             };
 
             _content.addEventListener(scope._transitionEndName, _onTheCSSEnd, false);
-
+            _options.onActionStart(_isClosed);
             // set position
             _behavior.changeContentPosition(shift);
         };
@@ -637,23 +639,32 @@
 
         };
 
-        this.setState = function (close, onActionEnd) {
+        this.setState = function (close) {
 
             if (_isClosed !== close) {
                 if (_options.overlay) {
                     _overlay.style.display = 'block';
                 }
-                _options.onActionEnd = onActionEnd? onActionEnd: _options.onActionEnd;
                 _action(close ? 'close' : 'open');
             }
+        };
+
+        this.setonActionEndCallback = function(onActionEndCallback){
+            _options.onActionEnd = onActionEndCallback;
+        };
+
+        this.setonActionStartCallback = function(onActionStartCallback){
+            _options.onActionStart = onActionStartCallback;
         };
 
         this.isClosed = function(){
             return _isClosed;
         };
+
         this.setEnableSwipe = function (flag) {
             _enabled = flag;
         };
+
         this.isEnableSwipe = function () {
             return _enabled;
         };

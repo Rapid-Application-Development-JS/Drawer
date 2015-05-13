@@ -78,7 +78,7 @@ div[data-role=view] {
     position: absolute;
 }
 .native-scroll {
-    overflow-y: scroll;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch
 }
 .top-bar {
