@@ -7,6 +7,16 @@ Organize widgets as drawer layer and content layer inside wrapper layer.
 - [Pointer](https://github.com/Rapid-Application-Development-JS/Pointer)
 - [Gesture](https://github.com/Rapid-Application-Development-JS/Gesture)
 
+Your wrapper layer should support point and tap events, it is needed for compatibility with different devices:
+Drawer uses next events:
+- tap
+- pointerup
+- pointermove
+- pointerdown
+- pointercancel
+- fling
+
+so before instance drawer you should add support pointer and tap events for wrapper layer. We recommend use our modules [Pointer](https://github.com/Rapid-Application-Development-JS/Pointer) and [Gesture](https://github.com/Rapid-Application-Development-JS/Gesture).
 ###Initialization
 At first You should make wrapper layer with two layers first layer will be used as drawer, second one as content.
 ```HTML
@@ -20,17 +30,6 @@ At first You should make wrapper layer with two layers first layer will be used 
 </div>
 ```
 ![GitHub Logo](/img/drawer1.png)
-
-Your wrapper layer should support next events:
-
-- tap
-- pointerup
-- pointermove
-- pointerdown
-- pointercancel
-- fling
-
-so before instance drawer you should add support pointer and tap events for wrapper layer. We recommend use our modules [Pointer](https://github.com/Rapid-Application-Development-JS/Pointer) and [Gesture](https://github.com/Rapid-Application-Development-JS/Gesture).
 
 Next step - make instance of Drawer with wrapper element.
 ```javascript
