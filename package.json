@@ -1,5 +1,5 @@
 {
-  "name": "Drawer",
+  "name": "radjs-drawer",
   "version": "1.0.0",
   "description": "**Drawer widget for web page**",
   "main": "drawer.min.js",
