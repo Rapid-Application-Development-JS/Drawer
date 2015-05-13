@@ -655,11 +655,11 @@
         };
 
         this.setOnActionEndCallback = function(onActionEndCallback){
-            _options.onActionEnd = onActionEndCallback;
+            _options.onActionEnd = onActionEndCallback ? onActionEndCallback:function(){};
         };
 
         this.setOnActionStartCallback = function(onActionStartCallback){
-            _options.onActionStart = onActionStartCallback;
+            _options.onActionStart = onActionStartCallback ? onActionStartCallback : function(){};
         };
 
         this.isClosed = function(){
