@@ -6,6 +6,7 @@ Organize widgets as drawer layer and content layer inside wrapper layer.
 ###Dependency
 - [Pointer](https://github.com/Rapid-Application-Development-JS/Pointer)
 - [Gesture](https://github.com/Rapid-Application-Development-JS/Gesture)
+
 ###Initialization
 At first You should make wrapper layer with two layers first layer will be used as drawer, second one as content.
 ```HTML
