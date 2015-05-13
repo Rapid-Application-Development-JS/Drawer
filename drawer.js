@@ -287,7 +287,9 @@
                         if (_options.overlay && _options.overlayOpacity) {
                             _overlay.style.opacity = Math.abs(position / _wrapperWidth);
                         }
+                        return true;
                     }
+                    return false;
                 },
                 changeContentPositionRightBottom = function (shift) {
                     if ((_contentPosition + shift >= -behavior.wrapperOffset) && (_contentPosition + shift <= 0)) {
@@ -297,10 +299,9 @@
                         if (_options.overlay && _options.overlayOpacity) {
                             _overlay.style.opacity = Math.abs(position / _wrapperWidth);
                         }
+                        return true;
                     }
-                    else {
-
-                    }
+                    return false;
                 };
 
             behavior.isHorizontalOrientation = (_options.align === 'left' || _options.align === 'right') ? true : false
@@ -550,10 +551,10 @@
             if (((horizontalFling && Math.abs(event.speedX) > 0.2 && _enabled) && (_gestureKind === orientationType.horizontal)&&_behavior.isHorizontalOrientation) ||
                 ((verticalFling && Math.abs(event.speedY) > 0.2 && _enabled) && (_gestureKind === orientationType.vertical)&&!_behavior.isHorizontalOrientation)) {
                 clearTimeout(_tweatID);
-                console.log("_pointerFling _gestureKind:"+_gestureKind);
                 _action(direction);
             }
         };
+
         function _pointerTap() {
             if (!_isClosed) {
                 clearTimeout(_tweatID);
@@ -561,6 +562,7 @@
             }
         };
         function _action(activity) {
+
             var shift,
                 animTime = _options.animationTime;
             if (typeof activity !== 'string') {
@@ -611,9 +613,12 @@
             };
 
             _content.addEventListener(scope._transitionEndName, _onTheCSSEnd, false);
-            _options.onActionStart(_isClosed);
+
             // set position
-            _behavior.changeContentPosition(shift);
+            if(Math.abs(shift)>0){
+                _options.onActionStart(_isClosed);
+            }
+            _behavior.changeContentPosition(shift)
         };
 
         this.refresh = function () {
@@ -649,11 +654,11 @@
             }
         };
 
-        this.setonActionEndCallback = function(onActionEndCallback){
+        this.setOnActionEndCallback = function(onActionEndCallback){
             _options.onActionEnd = onActionEndCallback;
         };
 
-        this.setonActionStartCallback = function(onActionStartCallback){
+        this.setOnActionStartCallback = function(onActionStartCallback){
             _options.onActionStart = onActionStartCallback;
         };
 

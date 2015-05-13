@@ -52,11 +52,12 @@ drawer.setState(false);
 
 function onActionEnd(drawerState) {
     buttonsControl.disabled(false);
-    console.log(drawerState ? 'close' : 'open');
+    console.log('onActionEnd');
 }
 
 function onActionStart(drawerState) {
     buttonsControl.disabled(true);
+    console.log('onActionStart');
 }
 document.querySelector('button').addEventListener('click', function (event) {
         drawer.setState(!drawer.isClosed());
@@ -93,11 +94,11 @@ function onBottomItemClick() {
 function changeState(options) {
     allowClick = false;
     if (!drawer.isClosed()) {
-        drawer.setonActionEndCallback(function () {
+        drawer.setOnActionEndCallback(function () {
             drawer.destroy();
             drawer = null;
             drawer = new Drawer(wrapper, options);
-            drawer.setonActionEndCallback(function () {
+            drawer.setOnActionEndCallback(function () {
                 allowClick = true;
                 buttonsControl.disabled(false);
             });
@@ -108,7 +109,7 @@ function changeState(options) {
         drawer.destroy();
         drawer = null;
         drawer = new Drawer(wrapper, options);
-        drawer.setonActionEndCallback(function () {
+        drawer.setOnActionEndCallback(function () {
             allowClick = true;
             buttonsControl.disabled(false);
         });
