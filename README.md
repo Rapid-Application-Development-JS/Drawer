@@ -1,5 +1,5 @@
 # Drawer
-Organize widgets as drawer layer and content layer inside wrapper layer.
+Organize widgets as drawer and content layers inside wrapper layer.
 
 [Example](http://rapid-application-development-js.github.io/Drawer/example/)
 
