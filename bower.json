@@ -1,0 +1,50 @@
+{
+  "authors": [
+    "Yuriy Luchaninov <y.luchaninov@mobidev.biz> (http://mobidev.biz/)"
+  ],
+  "contributors": [
+    {
+      "email": "a.trofimenko@mobidev.biz",
+      "name": "Anton Trofimenko"
+    },
+    {
+      "email": "r.prokofeyv@mobidev.biz",
+      "name": "Roman Prokofeyv"
+    },
+    {
+      "email": "y.luchaninov@mobidev.biz",
+      "name": "Yuriy Luchaninov"
+    }
+  ],
+  "dependencies": {},
+  "description": "Drawer widget for web page",
+  "devDependencies": {
+    "uglifyjs": "*"
+  },
+  "homepage": "https://github.com/Rapid-Application-Development-JS/Drawer",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [
+    "drawer",
+    "sidebar",
+    "ui"
+  ],
+  "license": "MIT",
+  "main": [
+    "release/drawer.min.js",
+    "release/drawer.min.js.map"
+  ],
+  "moduleType": [
+    "globals",
+    "amd",
+    "es6",
+    "node"
+  ],
+  "name": "radjs-drawer",
+  "version": "1.0.0"
+}

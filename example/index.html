@@ -1,100 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <meta name="format-detection" content="telephone=no">
-
-    <title>Drawer</title>
-    <script type="text/javascript" src="../drawer.js"></script>
-    <script type="text/javascript" src="src/pointer.min.js"></script>
-    <script type="text/javascript" src="src/gesture.min.js"></script>
-    <link rel="stylesheet" href="./theme/css/main.css" type="text/css"/>
-    <link rel="stylesheet" href="./assets/layout.css" type="text/css"/>
-    <link rel="stylesheet" href="index.css" type="text/css"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>Drawer</title>
+	<script type="text/javascript" src="../release/drawer.min.js"></script>
+	<script type="text/javascript" src="src/pointer.min.js"></script>
+	<script type="text/javascript" src="src/gesture.min.js"></script>
+	<link rel="stylesheet" href="./theme/css/main.css" type="text/css"/>
+	<link rel="stylesheet" href="./assets/layout.css" type="text/css"/>
+	<link rel="stylesheet" href="index.css" type="text/css"/>
 </head>
 <body>
 <div class="content-container">
-    <div class="top-bar topcoat-navigation-bar no-top-shadow">
-        <div class="topcoat-navigation-bar__item quarter">
-            <button class="topcoat-icon-button toggle-menu">
-                <i class="fa fa-bars"></i>
-            </button>
-        </div>
-        <div class="topcoat-navigation-bar__item center half">
-            <h1 class="topcoat-navigation-bar__title">Drawer Example</h1>
-        </div>
-    </div>
+	<div class="top-bar topcoat-navigation-bar no-top-shadow">
+		<div class="topcoat-navigation-bar__item quarter">
+			<button class="topcoat-icon-button toggle-menu">
+				<i class="fa fa-bars"></i>
+			</button>
+		</div>
+		<div class="topcoat-navigation-bar__item center half">
+			<h1 class="topcoat-navigation-bar__title">Drawer Example</h1>
+		</div>
+	</div>
 
-    <div class="bottom-bar blocks-bottom blocks-holder">
-        <form class="form-options">
-            <ul class="topcoat-list__container block-container animation-list" id="animation-list">
-                <li class="topcoat-list__item block-container__item" >
-                    <label class="topcoat-radio-button" for="align-left">
-                        <input type="radio" name="animation" id="align-left" checked onchange="onLeftItemClick()">
-                        <div class="topcoat-radio-button__checkmark"></div>
-                        <span class="radio-label">Left</span>
-                    </label>
-                </li>
+	<div class="bottom-bar blocks-bottom blocks-holder">
+		<form class="form-options">
+			<ul class="topcoat-list__container block-container animation-list" id="animation-list">
+				<li class="topcoat-list__item block-container__item">
+					<label class="topcoat-radio-button" for="align-left">
+						<input type="radio" name="animation" id="align-left" checked onchange="onLeftItemClick()">
 
-                <li class="topcoat-list__item block-container__item">
-                    <label class="topcoat-radio-button" for="align-right">
-                        <input type="radio" name="animation" id="align-right" onchange="onRightItemClick()">
-                        <div class="topcoat-radio-button__checkmark"></div>
-                        <span class="radio-label">Right</span>
-                    </label>
-                </li>
+						<div class="topcoat-radio-button__checkmark"></div>
+						<span class="radio-label">Left</span>
+					</label>
+				</li>
 
-                <li class="topcoat-list__item block-container__item" >
-                    <label class="topcoat-radio-button" for="align-top" >
-                        <input type="radio" name="animation" id="align-top" onchange="onTopItemClick()">
-                        <div class="topcoat-radio-button__checkmark"></div>
-                        <span class="radio-label">Top</span>
-                    </label>
-                </li>
+				<li class="topcoat-list__item block-container__item">
+					<label class="topcoat-radio-button" for="align-right">
+						<input type="radio" name="animation" id="align-right" onchange="onRightItemClick()">
 
-                <li class="topcoat-list__item block-container__item" >
-                    <label class="topcoat-radio-button" for="align-bottom" >
-                        <input type="radio" name="animation" id="align-bottom" onchange="onBottomItemClick()">
-                        <div class="topcoat-radio-button__checkmark"></div>
-                        <span class="radio-label">Bottom</span>
-                    </label>
-                </li>
-            </ul>
-        </form>
-    </div>
-    <div class="main">
-        <div>
-            <ul class="topcoat-list__container">
-                <li class="topcoat-list__item selected" onclick="closeDrawer()">First</li>
-                <li class="topcoat-list__item" onclick="closeDrawer()">Second</li>
-                <li class="topcoat-list__item" onclick="closeDrawer()">Third</li>
-            </ul>
-        </div>
-        <div class="scroll-view-body">
-            <div class="section native-scroll">
-                <h2 class="section__header">Move content to right or press button for open drawer</h2>
-                <div class="section__content">
-                    <img src="./assets/download.jpg" class="article__img"/>
-                    <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
-                        literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
-                        College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and
-                        going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum
-                        comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by
-                        Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.
-                        The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                        <br>
-                        <br>
-                        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
-                        1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original
-                        form, accompanied by English versions from the 1914 translation by H. Rackham.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+						<div class="topcoat-radio-button__checkmark"></div>
+						<span class="radio-label">Right</span>
+					</label>
+				</li>
+
+				<li class="topcoat-list__item block-container__item">
+					<label class="topcoat-radio-button" for="align-top">
+						<input type="radio" name="animation" id="align-top" onchange="onTopItemClick()">
+
+						<div class="topcoat-radio-button__checkmark"></div>
+						<span class="radio-label">Top</span>
+					</label>
+				</li>
+
+				<li class="topcoat-list__item block-container__item">
+					<label class="topcoat-radio-button" for="align-bottom">
+						<input type="radio" name="animation" id="align-bottom" onchange="onBottomItemClick()">
+
+						<div class="topcoat-radio-button__checkmark"></div>
+						<span class="radio-label">Bottom</span>
+					</label>
+				</li>
+			</ul>
+		</form>
+	</div>
+	<div class="main">
+		<div>
+			<ul class="topcoat-list__container">
+				<li class="topcoat-list__item selected" onclick="closeDrawer()">First</li>
+				<li class="topcoat-list__item" onclick="closeDrawer()">Second</li>
+				<li class="topcoat-list__item" onclick="closeDrawer()">Third</li>
+			</ul>
+		</div>
+		<div class="scroll-view-body">
+			<div class="section native-scroll">
+				<h2 class="section__header">Move content to right or press button for open drawer</h2>
+
+				<div class="section__content">
+					<img src="./assets/download.jpg" class="article__img"/>
+
+					<p>
+						Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+						classical Latin
+						literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
+						Hampden-Sydney
+						College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem
+						Ipsum passage, and
+						going through the cites of the word in classical literature, discovered the undoubtable source.
+						Lorem Ipsum
+						comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good
+						and Evil) by
+						Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during
+						the Renaissance.
+						The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section
+						1.10.32.
+						<br>
+						<br>
+						The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+						Sections
+						1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their
+						exact original
+						form, accompanied by English versions from the 1914 translation by H. Rackham.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <script type="text/javascript" src="index.js"></script>
 </body>

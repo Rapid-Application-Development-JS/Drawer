@@ -1,36 +1,56 @@
 {
-  "name": "radjs-drawer",
-  "version": "1.0.0",
-  "description": "**Drawer widget for web page**",
-  "main": "drawer.min.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Rapid-Application-Development-JS/Drawer.git"
-  },
+  "author": "Yuriy Luchaninov <y.luchaninov@mobidev.biz> (http://mobidev.biz/)",
   "bugs": {
     "url": "https://github.com/Rapid-Application-Development-JS/Drawer/issues"
   },
-
-  "keywords": [
-    "drawer",
-    "sidebar"
-  ],
-
-  "scripts": {
-    "test": "echo \"no test required\" && exit 1",
-    "build": "uglifyjs drawer.js --compress --mangle --screw-ie8 --comments --lint --source-map drawer.min.js.map --output drawer.min.js"
-  },
-  "author": "Yuriy Luchaninov <y.luchaninov@mobidev.biz> (http://mobidev.biz/)",
   "contributors": [
     {
-      "name": "Yuriy Luchaninov",
-      "email": "y.luchaninov@mobidev.biz"
+      "email": "a.trofimenko@mobidev.biz",
+      "name": "Anton Trofimenko"
+    },
+    {
+      "email": "r.prokofeyv@mobidev.biz",
+      "name": "Roman Prokofeyv"
+    },
+    {
+      "email": "y.luchaninov@mobidev.biz",
+      "name": "Yuriy Luchaninov"
     }
   ],
+  "dependencies": {
+  },
+  "description": "Drawer widget for web page",
   "devDependencies": {
     "uglifyjs": "*"
   },
-  "readmeFilename": "README.md",
+  "directories": {
+    "example": "example"
+  },
   "homepage": "https://github.com/Rapid-Application-Development-JS/Drawer",
-  "license": "MIT"
+  "keywords": [
+    "drawer",
+    "sidebar",
+    "ui"
+  ],
+  "license": "MIT",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/Rapid-Application-Development-JS/Drawer/blob/master/LICENSE.md"
+  },
+  "main": [
+    "release/drawer.min.js",
+    "release/drawer.min.js.map"
+  ],
+  "name": "radjs-drawer",
+  "private": false,
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rapid-Application-Development-JS/Drawer.git"
+  },
+  "scripts": {
+    "build-js": "uglifyjs source/drawer.js --compress --mangle --screw-ie8 --comments --lint --source-map release/drawer.min.js.map --output release/drawer.min.js --debug",
+    "test": "echo \"no test required\" && exit 1"
+  },
+  "version": "1.0.0"
 }
