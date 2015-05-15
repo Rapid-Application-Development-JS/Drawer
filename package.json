@@ -24,7 +24,8 @@
     "uglifyjs": "*"
   },
   "directories": {
-    "example": "example"
+    "example": "example",
+    "lib": "source"
   },
   "homepage": "https://github.com/Rapid-Application-Development-JS/Drawer",
   "keywords": [
@@ -48,8 +49,8 @@
     "url": "git+https://github.com/Rapid-Application-Development-JS/Drawer.git"
   },
   "scripts": {
-    "build-js": "uglifyjs source/drawer.js --compress --mangle --screw-ie8 --comments --lint --source-map release/drawer.min.js.map --output release/drawer.min.js --debug",
+    "build-js": "uglifyjs source/drawer.js --compress --mangle --screw-ie8 --comments --lint --source-map release/drawer.min.js.map --output release/drawer.min.js",
     "test": "echo \"no test required\" && exit 1"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
