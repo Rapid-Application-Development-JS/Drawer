@@ -50,7 +50,7 @@ You can customize behavior of drawer for this you should initialize drawer with 
 ```javascript
     drawer = new Drawer(wrapper, {
         align: 'right',
-        maxWidth: '30%',
+        maxSize: '30%',
         startTrackingZone: '50',
         animationTime: 1000,
         onActionEnd: function (drawerState) {
@@ -73,7 +73,7 @@ drawer will be init with default parameters from this list.
 |swipe| true| Enable/Disable swiping content layout|
 |preventMove| true| Enable/Disable native scroll in drover layout for Android OS|
 |resizeEvent| true| Allows automatically resizes drawer and content layouts|
-|maxWidth| 70%|Percent value of drawer layout width|
+|maxSize| 70%|Percent or pixel value of drawer layout width|
 |startTrackingZone| 20%| Percent value of area width which allows swipe content layout|
 |animationTime| 350|Duration of animation close/open drawer bar in ms| 
 |onActionEnd| empty function| Callback functions will be called after drawer changes state from close to open or conversely|
