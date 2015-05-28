@@ -79,6 +79,8 @@ drawer will be init with default parameters from this list.
 |onActionEnd| empty function| Callback functions will be called after drawer changes state from close to open or conversely|
 |onActionStart|empty function| Callback functions will be called before drawer changes state from closed to open or conversely|
 ###Methods
+####setState(close)
+Close Drower if argument `close` is `true` and open Drawer if `close` is `false`. If you will try set current drawer state nothing happens.
 ####setEnableSwipe(isEnable)
  Enable/Disable reaction for swipe gesture. You can change state of swipe any time, this key has the same behavior as `swipe` field of options object.
  ```javascript
