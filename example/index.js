@@ -17,7 +17,7 @@ var wrapper = document.querySelector('.main'),
     color = 'rgba(0, 250, 0, 0.6)',
     leftOptions = {
         align: 'left',
-        maxSize: '50%',
+        maxSize: '300px',
         animationTime: 1000,
         overlayBackground: color,
         onActionEnd: onActionEnd,
