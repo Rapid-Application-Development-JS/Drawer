@@ -96,6 +96,7 @@
       move: 'pointermove',
       down: 'pointerdown',
       chancel: 'pointercancel',
+      out: 'pointerout',
       fling: 'fling'
     };
     var orientationType = {
@@ -149,6 +150,7 @@
           break;
         case TRACKING_EVENTS.chancel:
         case TRACKING_EVENTS.up:
+        case TRACKING_EVENTS.out:
           _pointerUp(event);
           break;
         case TRACKING_EVENTS.fling:
